@@ -5,10 +5,9 @@
       <!-- mainCont -->
       <section id="mainCont">
         <div class="main_cont">
-          <div>{{msg1}}</div>
-          <div>{{msg2}}</div>
-          <div>{{msg3}}</div>
-          <div>{{msg4}}</div>
+          <div v-for="todo in todos" v-bind:key="todo.text">
+            {{ todo.text }}
+          </div>
         </div>
       </section>
       <!-- //mainCont -->
@@ -17,21 +16,23 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
+import Header from "@/components/Header.vue";
 
 export default {
   components: {
     Header,
   },
-  data(){
+  data: function () {
     return {
-      msg1 : "we provide",
-      msg2 : "visual coding",
-      msg3 : "solutions",
-      msg4 : "for you webs",
-    }
-  }
-}
+      todos: [
+        { text: "we provide" },
+        { text: "visual coding" },
+        { text: "solutions" },
+        { text: "for you webs" },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
